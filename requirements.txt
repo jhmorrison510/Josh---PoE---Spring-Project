@@ -3,3 +3,4 @@ streamlit-autorefresh
 requests
 icalendar
 datetime
+recurring-ical-events
