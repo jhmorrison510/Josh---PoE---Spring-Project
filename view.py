@@ -2,6 +2,7 @@
 import streamlit as st
 import json
 from datetime import datetime
+from zoneinfo import ZoneInfo
 from streamlit.components.v1 import html
 from streamlit_autorefresh import st_autorefresh
 
@@ -82,7 +83,7 @@ events, progress_list, active_count = get_calendar_progress(ICS_URL)
 # top bar
 col1, col2, col3, col4, col5 = st.columns(5)
 
-now = datetime.now()
+now = datetime.now(ZoneInfo("America/Los_Angeles"))
 today_string = now.strftime("%Y-%m-%d")
 current_time_string = now.strftime("%H:%M:%S")
 
@@ -154,7 +155,7 @@ with left:
 
             var calendar = new FullCalendar.Calendar(calendarEl, {{
                 initialView: 'timeGridTwoDay',
-                timeZone: "local",
+                timeZone: "America/Los_Angeles",
 
                 headerToolbar: false,
 
