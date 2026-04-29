@@ -2,3 +2,5 @@ streamlit
 streamlit-autorefresh
 requests
 icalendar
+datetime
+json
