@@ -2,6 +2,7 @@
 import requests
 import icalendar
 from datetime import datetime, timedelta, date
+from zoneinfo import ZoneInfo
 import streamlit as st
 
 
@@ -9,8 +10,10 @@ import streamlit as st
 def normalize(dt):
     if isinstance(dt, date) and not isinstance(dt, datetime):
         return datetime.combine(dt, datetime.min.time())
+
     if isinstance(dt, datetime) and dt.tzinfo is not None:
-        return dt.astimezone().replace(tzinfo=None)
+        return dt.astimezone(ZoneInfo("America/Los_Angeles")).replace(tzinfo=None)
+
     return dt
 
 
@@ -38,7 +41,7 @@ def get_calendar_progress(ics_url):
 
         cal = icalendar.Calendar.from_ical(r.text)
 
-        now = datetime.now()
+        now = datetime.now(ZoneInfo("America/Los_Angeles")).replace(tzinfo=None)
         start_window = datetime.combine(now.date(), datetime.min.time())
         end_window = start_window + timedelta(days=2)
 
