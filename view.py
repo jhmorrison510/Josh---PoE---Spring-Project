@@ -36,7 +36,7 @@ header {
 </style>
 """, unsafe_allow_html=True)
 
-ICS_URL = "https://calendar.google.com/calendar/ical/c_fc310005d76d056af7578e9fbc8a90f63d4af5b375b002e1d9fbb650be315783%40group.calendar.google.com/public/basic.ics"
+ICS_URL = "https://calendar.google.com/calendar/ical/c_188aajppcq1b4i4lgds6ba7qukqm4%40resource.calendar.google.com/private-c27724efc70b4459ac548b36a743653a/basic.ics"
 
 # auto refresh 
 st_autorefresh(interval=60000, key="auto_refresh")
