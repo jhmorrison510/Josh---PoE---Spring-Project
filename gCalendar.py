@@ -4,7 +4,7 @@ import icalendar
 from datetime import datetime, timedelta, date
 from zoneinfo import ZoneInfo
 import streamlit as st
-import recurring-ical-events
+import recurring_ical_events
 
 # make all dates  same
 def normalize(dt):
