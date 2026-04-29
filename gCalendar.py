@@ -4,7 +4,7 @@ import icalendar
 from datetime import datetime, timedelta, date
 from zoneinfo import ZoneInfo
 import streamlit as st
-
+import recurring-ical-events
 
 # make all dates  same
 def normalize(dt):
@@ -51,10 +51,7 @@ def get_calendar_progress(ics_url):
 
 
         #loop for events
-        for c in cal.walk():
-
-            if c.name != "VEVENT":
-                continue
+        for c in recurring_ical_events.of(cal).between(start_window, end_window):
 
             try:
                 dtstart = c.get("dtstart")
